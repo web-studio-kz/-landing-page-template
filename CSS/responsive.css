@@ -1,0 +1,98 @@
+/* === МОБИЛЬНЫЕ СТИЛИ (по умолчанию в main.css) === */
+/* "Гамбургер" меню (скрываем обычную навигацию, показываем кнопку) */
+#main-header nav {
+    display: none; /* Скрываем по умолчанию на мобильных */
+}
+#mobile-menu-toggle {
+    display: block; /* Показываем гамбургер */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    /* Стили для линий гамбургера */
+}
+#mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-text);
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+.mobile-nav { /* Само мобильное меню, появляется по клику */
+    display: none; /* Скрыто, пока не активно */
+    position: absolute;
+    top: 100%; /* Под шапкой */
+    left: 0;
+    width: 100%;
+    background-color: var(--color-background);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    padding: var(--spacing-unit);
+}
+.mobile-nav.active { display: block; }
+.mobile-nav ul { list-style: none; }
+.mobile-nav ul li a {
+    display: block;
+    padding: var(--spacing-unit) 0;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-text);
+}
+.header-cta {
+    display: none; /* Можно скрыть CTA в шапке на маленьких экранах или уменьшить */
+}
+
+
+/* === ПЛАНШЕТЫ (например, от 768px) === */
+@media (min-width: 768px) {
+    #main-header nav {
+        display: flex; /* Показываем обычную навигацию */
+    }
+    #mobile-menu-toggle {
+        display: none; /* Скрываем гамбургер */
+    }
+    .header-cta {
+        display: inline-block;
+    }
+
+    .hero-section {
+        text-align: left; /* Например, текст слева на больших экранах */
+        min-height: 70vh;
+    }
+    .hero-section .container {
+        max-width: 900px; /* Ограничиваем ширину контента в hero */
+    }
+    .hero-section .subtitle {
+        margin-left: 0;
+        max-width: 600px;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        /* Можно задать явное количество колонок: grid-template-columns: 1fr 1fr; */
+    }
+    #main-footer .footer-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+    }
+}
+
+/* === ДЕСКТОПЫ (например, от 1024px) === */
+@media (min-width: 1024px) {
+    h1 { /* Более крупные заголовки на десктопе */ }
+    .cards-grid {
+        /* INFO: Может быть 3-4 колонки в зависимости от контента */
+        /* grid-template-columns: repeat(3, 1fr); */
+    }
+    #main-footer .footer-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 колонки в футере */
+    }
+    .about-content { /* Пример для секции "О нас" с текстом и картинкой рядом */
+        display: flex;
+        align-items: center;
+        gap: calc(var(--spacing-unit) * 3);
+    }
+    .about-content .about-text,
+    .about-content .about-visual {
+        flex: 1;
+    }
+}

@@ -1,0 +1,344 @@
+/* === ГЛОБАЛЬНЫЕ СТИЛИ И ПЕРЕМЕННЫЕ === */
+:root {
+    /* INFO: Цвета бренда. Определите основные и акцентные цвета. */
+    /* Пример для светлой темы по умолчанию */
+    --color-primary: #007AFF; /* Яркий синий Apple/Stripe-like */
+    --color-secondary: #5856D6; /* Фиолетовый акцент Stripe-like */
+    --color-text: #1d1d1f; /* Темный текст (Apple) */
+    --color-background: #ffffff; /* Белый фон */
+    --color-background-alt: #f5f5f7; /* Слегка серый фон для секций (Apple) */
+    --color-border: #d2d2d7;
+
+    /* INFO: Шрифты. Выберите 1-2 современных, читаемых шрифта. */
+    --font-primary: 'Montserrat', sans-serif; /* Для заголовков, выразительный */
+    --font-secondary: 'Open Sans', sans-serif; /* Для основного текста, читаемый */
+
+    --container-width: 1140px;
+    --spacing-unit: 1rem; /* 16px по умолчанию */
+}
+
+/* INFO: Базовый сброс или normalize.css для консистентности */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Плавный скролл по якорям */
+    font-size: 100%; /* 16px по умолчанию */
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s, color 0.3s; /* Для переключения тем */
+}
+
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 calc(var(--spacing-unit) * 1.5);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 700; /* Или 900 для H1 */
+    line-height: 1.2;
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    /* INFO: Размеры шрифтов - четкая визуальная иерархия. H1 может быть очень крупным. */
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); /* Адаптивный размер H1 */ } /* ~40px - 72px */
+h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); } /* ~29px - 40px */
+h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); } /* ~20px - 28px */
+
+p {
+    margin-bottom: var(--spacing-unit);
+    font-size: clamp(1rem, 1.5vw, 1.125rem); /* ~16px - 18px, улучшенная читаемость */
+    line-height: 1.7; /* Увеличенный межстрочный интервал */
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+a:hover, a:focus {
+    color: var(--color-secondary);
+    /* INFO: Добавить эффект подчеркивания или другой для hover */
+}
+
+img, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* === УТИЛИТЫ === */
+.section-padding {
+    padding-top: calc(var(--spacing-unit) * 4);
+    padding-bottom: calc(var(--spacing-unit) * 4);
+    /* INFO: Больше "воздуха" между секциями */
+}
+.text-center { text-align: center; }
+.dark-bg { /* Для секций с темным фоном (пример) */
+    background-color: #1d1d1f; /* INFO: Замените на ваш темный цвет */
+    color: #f5f5f7;
+}
+.dark-bg h1, .dark-bg h2, .dark-bg h3, .dark-bg p { color: #f5f5f7; }
+.dark-bg a { color: var(--color-secondary); /* Акцентный цвет на темном фоне */ }
+.dark-bg a:hover { color: var(--color-primary); }
+
+/* === КОМПОНЕНТЫ === */
+
+/* --- Шапка (Header) --- */
+#main-header {
+    position: sticky; /* Липкое меню */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-background); /* Может быть с прозрачностью и блюром */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Тонкая тень для отделения */
+    z-index: 1000;
+    padding: var(--spacing-unit) 0;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+#main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo img {
+    height: 40px; /* INFO: Настройте размер лого */
+}
+#main-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: calc(var(--spacing-unit) * 2);
+}
+#main-header nav a {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: var(--color-text);
+    padding: 0.5rem 0;
+    position: relative;
+}
+#main-header nav a::after { /* Эффект подчеркивания при наведении */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+#main-header nav a:hover::after,
+#main-header nav a.active::after {
+    width: 100%;
+}
+
+/* --- Кнопки (CTA) --- */
+.cta-button {
+    display: inline-block;
+    padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.75);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px; /* Современные скругленные углы */
+    transition: transform 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+    cursor: pointer;
+    border: none;
+}
+.cta-button.primary-cta {
+    background-color: var(--color-primary);
+    color: #fff;
+    /* INFO: Яркая, контрастная кнопка */
+}
+.cta-button.primary-cta:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3); /* Тень для эффекта */
+}
+.cta-button.secondary-cta {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+.cta-button.secondary-cta:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+.header-cta { /* CTA в шапке */
+    margin-left: calc(var(--spacing-unit) * 2);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    min-height: 80vh; /* Занимает большую часть экрана */
+    display: flex;
+    align-items: center;
+    text-align: center; /* или left для другого вида */
+    padding: calc(var(--spacing-unit) * 6) 0;
+    position: relative;
+    overflow: hidden;
+    /* INFO: Добавьте фоновое изображение/видео/градиент/3D графику */
+    background: url('../assets/images/hero-bg.jpg') no-repeat center center/cover; /* Пример */
+    /* Или градиент: background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); */
+}
+.hero-section::before { /* Оверлей для лучшей читаемости текста на фоне */
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.3); /* INFO: Настройте прозрачность */
+}
+.hero-section .container {
+    position: relative; /* Чтобы контент был над оверлеем */
+    z-index: 1;
+}
+.hero-section h1 {
+    color: #fff; /* Белый текст на темном фоне */
+    margin-bottom: var(--spacing-unit);
+}
+.hero-section .subtitle {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: calc(var(--spacing-unit) * 2.5);
+}
+.hero-section .primary-cta {
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2.5);
+    font-size: 1.1rem;
+}
+
+/* --- Карточки (Products, Blog) --- */
+.cards-grid {
+    display: grid;
+    /* INFO: Адаптивная сетка для карточек */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+}
+.card {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 12px; /* Более выраженные скругления */
+    padding: calc(var(--spacing-unit) * 1.5);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* INFO: Микроанимация при наведении */
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.card-icon {
+    /* INFO: Стили для иконок в карточках */
+    width: 50px;
+    height: 50px;
+    margin-bottom: var(--spacing-unit);
+    /* INFO: Цвет иконки должен соответствовать бренду */
+    /* fill: var(--color-primary); */
+}
+.card h3 {
+    margin-top: 0;
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    font-size: 1.25rem; /* Четкий заголовок карточки */
+}
+.card p {
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-unit);
+}
+.card-link {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+.blog-card img {
+    border-radius: 8px 8px 0 0; /* Скругление только верхних углов изображения */
+    margin-bottom: var(--spacing-unit);
+}
+
+/* --- Формы --- */
+.contact-form div {
+    margin-bottom: var(--spacing-unit);
+}
+.contact-form label {
+    display: block;
+    margin-bottom: calc(var(--spacing-unit) * 0.25);
+    font-weight: 600;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: calc(var(--spacing-unit) * 0.75);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    transition: border-color 0.2s;
+}
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2); /* Фокус как у Stripe/Apple */
+}
+
+/* --- Футер --- */
+#main-footer {
+    background-color: var(--color-background-alt); /* Или темный фон */
+    border-top: 1px solid var(--color-border);
+    color: #555; /* INFO: Приглушенный цвет текста для футера */
+}
+#main-footer .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+#main-footer h4 {
+    font-size: 1.1rem;
+    color: var(--color-text); /* Более темный для заголовков в футере */
+    margin-bottom: var(--spacing-unit);
+}
+#main-footer ul {
+    list-style: none;
+}
+#main-footer ul li {
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+#main-footer ul a {
+    color: #555;
+}
+#main-footer ul a:hover {
+    color: var(--color-primary);
+}
+.social-links {
+    display: flex;
+    gap: var(--spacing-unit);
+}
+.social-links img { /* SVG иконки */
+    width: 24px;
+    height: 24px;
+    /* fill: #555; */ /* Цвет иконок */
+}
+.social-links a:hover img {
+    /* fill: var(--color-primary); */
+}
+.copyright {
+    padding-top: var(--spacing-unit);
+    border-top: 1px solid var(--color-border);
+    font-size: 0.9rem;
+}

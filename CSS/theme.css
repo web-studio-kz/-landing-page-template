@@ -1,0 +1,33 @@
+/* === ТЕМНАЯ ТЕМА === */
+body.theme-dark {
+    --color-primary: #0A84FF; /* Может быть ярче на темном */
+    --color-secondary: #5E5CE6;
+    --color-text: #f5f5f7; /* Светлый текст */
+    --color-background: #1c1c1e; /* Темный фон (Apple) */
+    --color-background-alt: #2c2c2e; /* Чуть светлее темный для секций */
+    --color-border: #3a3a3c;
+}
+
+/* INFO: Переопределите стили для темной темы по необходимости */
+/* Например, карточки в темной теме */
+body.theme-dark .card {
+    background-color: var(--color-background-alt);
+    border-color: var(--color-border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Тень может быть другой */
+}
+body.theme-dark #main-header {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+/* ... и так далее для других элементов ... */
+
+/* INFO: Кнопка переключения темы (пример) */
+#theme-toggle {
+    /* Стилизуйте кнопку */
+    background: none;
+    border: 1px solid var(--color-text);
+    color: var(--color-text);
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: var(--spacing-unit);
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: Заголовок страницы - четко и привлекательно -->
+    <title>[Название Технологической Компании] - Инновационные Решения для [Вашей Целевой Задачи]</title>
+    <!-- SEO: Описание страницы - краткое, с ключевыми словами, для поисковиков и соцсетей -->
+    <meta name="description" content="[Краткое описание компании и ее ключевого предложения, ориентированное на молодую аудиторию и технологичность. Например: Разрабатываем передовые IT-решения, которые меняют правила игры. Узнайте, как мы можем усилить ваш бизнес.]">
+
+    <!-- Favicon -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+    <!-- <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png"> --> <!-- Пример пути -->
+
+    <!-- Шрифты (пример подключения через Google Fonts, но лучше хостить локально) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- INFO: Выберите 1-2 шрифта: выразительный для заголовков (Montserrat) и читаемый для текста (Open Sans). -->
+
+    <!-- CSS: Подключение стилей -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+<!-- BODY: Добавить класс для темы по умолчанию, например, 'theme-light' или 'theme-dark' -->
+<!-- JS будет управлять этим классом на основе localStorage или prefers-color-scheme -->
+<body>
+
+    <!-- HEADER: Фиксированный (липкий) для удобства навигации -->
+    <header id="main-header">
+        <div class="container">
+            <a href="/" class="logo" aria-label="[Название Компании] - на главную">
+                <img src="assets/images/logo.svg" alt="[Название Компании] Лого">
+            </a>
+            <nav id="main-navigation-desktop" aria-label="Основная навигация"> <!-- ID для возможного JS управления -->
+                <ul>
+                    <li><a href="#hero" class="active">Главная</a></li> <!-- Добавил "Главная" и класс active -->
+                    <li><a href="#products">Продукты</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#career">Карьера</a></li>
+                    <li><a href="#blog">Блог</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <button id="theme-toggle" aria-label="Переключить тему">
+                <!-- INFO: Иконки для темы можно вставить сюда через SVG или JS -->
+                ☀️ <!-- Placeholder, JS может менять -->
+            </button>
+
+            <a href="#contact-form" class="cta-button primary-cta header-cta">[Запросить демо]</a>
+
+            <button id="mobile-menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav-mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Мобильное меню (скрыто по умолчанию CSS, управляется JS) -->
+    <nav id="main-nav-mobile" class="mobile-nav" aria-label="Мобильная навигация">
+        <ul>
+            <li><a href="#hero">Главная</a></li>
+            <li><a href="#products">Продукты</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#career">Карьера</a></li>
+            <li><a href="#blog">Блог</a></li>
+            <li><a href="#contact">Контакты</a></li>
+            <li><a href="#contact-form" class="cta-button primary-cta">[Запросить демо]</a></li> <!-- CTA в мобильном меню -->
+        </ul>
+    </nav>
+
+
+    <main>
+        <!-- HERO SECTION: Главный экран, первое впечатление -->
+        <section id="hero" class="hero-section reveal-on-scroll"> <!-- Добавлен класс для анимации -->
+            <div class="container">
+                <h1>[Ваш главный оффер или миссия. Пример: "Создаем будущее технологий. Вместе."]</h1>
+                <p class="subtitle">[Подзаголовок, раскрывающий суть. Пример: "Инновационные IT-решения для вашего роста."]</p>
+                <a href="#products" class="cta-button primary-cta">[Узнать больше о решениях]</a>
+            </div>
+        </section>
+
+        <!-- PRODUCTS/SOLUTIONS SECTION -->
+        <section id="products" class="section-padding reveal-on-scroll">
+            <div class="container">
+                <h2 class="text-center">[Наши Продукты / Ключевые Услуги]</h2>
+                <p class="section-intro text-center">[Объясните, какие проблемы решают ваши продукты/услуги.]</p>
+                <div class="cards-grid">
+                    <article class="card reveal-on-scroll">
+                        <img src="assets/icons/product-icon-1.svg" alt="[Название продукта 1]" class="card-icon">
+                        <h3>[Название Продукта/Услуги 1]</h3>
+                        <p>[Краткое описание: ключевые преимущества, для кого.]</p>
+                        <a href="[ссылка на страницу продукта 1]" class="card-link">[Узнать больше]</a>
+                    </article>
+                    <article class="card reveal-on-scroll">
+                        <img src="assets/icons/product-icon-2.svg" alt="[Название продукта 2]" class="card-icon">
+                        <h3>[Название Продукта/Услуги 2]</h3>
+                        <p>[Краткое описание.]</p>
+                        <a href="[ссылка на страницу продукта 2]" class="card-link">[Узнать больше]</a>
+                    </article>
+                    <!-- INFO: Добавить еще карточки по необходимости (например, 3-ю для лучшего вида на десктопе) -->
+                     <article class="card reveal-on-scroll">
+                        <img src="assets/icons/product-icon-3.svg" alt="[Название продукта 3]" class="card-icon">
+                        <h3>[Название Продукта/Услуги 3]</h3>
+                        <p>[Краткое описание.]</p>
+                        <a href="[ссылка на страницу продукта 3]" class="card-link">[Узнать больше]</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT US / CULTURE SECTION -->
+        <section id="about" class="section-padding dark-bg reveal-on-scroll">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>[О Нашей Компании / Наша Культура]</h2>
+                        <p>[Расскажите историю компании, ее миссию. Язык простой, без корпоративного жаргона.]</p>
+                        <p>[Подчеркните ценности: инновации, развитие, команда, влияние на мир.]</p>
+                        <a href="[ссылка на страницу 'О компании']" class="cta-button secondary-cta">[Подробнее о нас]</a>
+                    </div>
+                    <div class="about-visual">
+                        <img src="assets/images/team-photo-authentic.jpg" alt="[Наша команда работает над проектом]">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAREER TEASER SECTION -->
+        <section id="career" class="section-padding reveal-on-scroll">
+            <div class="container text-center">
+                <h2>[Присоединяйтесь к Нашей Команде]</h2>
+                <p class="section-intro">[Мы всегда в поиске талантов. Узнайте о возможностях роста и нашей культуре.]</p>
+                <a href="[ссылка на страницу вакансий]" class="cta-button primary-cta">[Смотреть вакансии]</a>
+            </div>
+        </section>
+
+        <!-- BLOG / INSIGHTS TEASER -->
+        <section id="blog" class="section-padding light-bg reveal-on-scroll">
+             <div class="container">
+                <h2 class="text-center">[Наш Блог / Экспертные Статьи]</h2>
+                <p class="section-intro text-center">[Делимся знаниями, рассказываем о трендах и проектах.]</p>
+                <div class="cards-grid blog-grid">
+                    <article class="card blog-card reveal-on-scroll">
+                        <a href="[ссылка на статью 1]" aria-label="[Заголовок статьи 1]">
+                            <img src="assets/images/blog-image-1.jpg" alt="[Краткое описание изображения для статьи 1]">
+                            <h3>[Заголовок Статьи 1]</h3>
+                        </a>
+                        <p>[Краткий анонс статьи. Используйте ключевые слова.]</p>
+                        <a href="[ссылка на статью 1]" class="card-link">[Читать далее]</a>
+                    </article>
+                    <article class="card blog-card reveal-on-scroll">
+                        <a href="[ссылка на статью 2]" aria-label="[Заголовок статьи 2]">
+                            <img src="assets/images/blog-image-2.jpg" alt="[Краткое описание изображения для статьи 2]">
+                            <h3>[Заголовок Статьи 2]</h3>
+                        </a>
+                        <p>[Краткий анонс статьи.]</p>
+                        <a href="[ссылка на статью 2]" class="card-link">[Читать далее]</a>
+                    </article>
+                    <!-- INFO: Обычно 2-3 карточки последних статей -->
+                    <article class="card blog-card reveal-on-scroll">
+                        <a href="[ссылка на статью 3]" aria-label="[Заголовок статьи 3]">
+                            <img src="assets/images/blog-image-3.jpg" alt="[Краткое описание изображения для статьи 3]">
+                            <h3>[Заголовок Статьи 3]</h3>
+                        </a>
+                        <p>[Краткий анонс статьи.]</p>
+                        <a href="[ссылка на статью 3]" class="card-link">[Читать далее]</a>
+                    </article>
+                </div>
+                <div class="text-center" style="margin-top: 30px;"> <!-- В CSS лучше вынести это -->
+                     <a href="[ссылка на весь блог]" class="cta-button secondary-cta">[Все статьи]</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT / FINAL CTA SECTION -->
+        <section id="contact" class="section-padding dark-bg reveal-on-scroll">
+            <div class="container">
+                <h2 class="text-center">[Свяжитесь с Нами / Запросить Демонстрацию]</h2>
+                <p class="section-intro text-center">[Задайте вопрос или запросите демо. Мы всегда рады общению!]</p>
+                <form id="contact-form" class="contact-form" action="[URL для отправки формы]" method="POST"> <!-- INFO: Укажите action и method -->
+                    <div>
+                        <label for="name">Имя<span class="required-asterisk">*</span>:</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
+                    </div>
+                    <div>
+                        <label for="email">Email<span class="required-asterisk">*</span>:</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                    </div>
+                    <div>
+                        <label for="company">Компания (опционально):</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div>
+                        <label for="message">Сообщение<span class="required-asterisk">*</span>:</label>
+                        <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+                    </div>
+                    <div class="consent-checkbox">
+                        <input type="checkbox" id="consent" name="consent" required aria-required="true">
+                        <label for="consent">Я согласен на обработку персональных данных и принимаю <a href="[ссылка на политику конфиденциальности]" target="_blank">Политику конфиденциальности</a><span class="required-asterisk">*</span>.</label>
+                    </div>
+                    <!-- INFO: Добавьте скрытое поле для reCAPTCHA или другую защиту от спама -->
+                    <button type="submit" class="cta-button primary-cta">[Отправить Запрос]</button>
+                </form>
+                <div class="alternative-contact text-center" style="margin-top: 2rem;">
+                    <p>Или свяжитесь с нами напрямую:</p>
+                    <p>Email: <a href="mailto:[ваш email]">[ваш email]</a></p>
+                    <!-- <p>Телефон: <a href="tel:[ваш телефон]">[ваш телефон]</a></p> -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER: Полезная информация и навигация. -->
+    <footer id="main-footer" class="section-padding">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="/" class="logo footer-logo" aria-label="[Название Компании] - на главную">
+                        <img src="assets/images/logo-footer.svg" alt="[Название Компании] Лого Футер">
+                    </a>
+                    <p>[Краткое описание компании или слоган для футера. Фокус на технологичности и молодой аудитории.]</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="#hero">Главная</a></li>
+                        <li><a href="#products">Продукты</a></li>
+                        <li><a href="#about">О компании</a></li>
+                        <li><a href="#career">Карьера</a></li>
+                        <li><a href="#blog">Блог</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Правовая информация</h4>
+                    <ul>
+                        <li><a href="[ссылка на политику конфиденциальности]" target="_blank">Политика конфиденциальности</a></li>
+                        <li><a href="[ссылка на условия использования]" target="_blank">Условия использования</a></li>
+                        <li><a href="[ссылка на cookie policy]" target="_blank">Политика Cookie</a></li>
+                        <!-- <li><a href="[ссылка на карту сайта]">Карта сайта</a></li> -->
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Мы в соцсетях</h4>
+                    <ul class="social-links">
+                        <li><a href="[ссылка на Linkedin]" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="assets/icons/social-icon-linkedin.svg" alt="LinkedIn"></a></li>
+                        <li><a href="[ссылка на Telegram]" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="assets/icons/social-icon-telegram.svg" alt="Telegram"></a></li>
+                        <!-- INFO: Добавьте другие соцсети (GitHub, Twitter/X, etc.) -->
+                    </ul>
+                    <!-- INFO: Форма подписки на рассылку, если актуально. -->
+                    <!-- <h4 style="margin-top: 1.5rem;">Подписка на новости</h4>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <input type="email" name="email_newsletter" placeholder="Ваш Email" required>
+                        <button type="submit">Подписаться</button>
+                    </form> -->
+                </div>
+            </div>
+            <div class="copyright text-center">
+                <p>© <span id="current-year"></span> [Название Технологической Компании]. Все права защищены.</p>
+                <p>[Дополнительный дисклеймер или информация, если требуется. Например, "Сайт разработан с любовью в [Город]".]</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS: JavaScript для интерактивности, анимаций, аналитики -->
+    <!-- Важно: defer заставляет скрипт исполняться после парсинга HTML, но до DOMContentLoaded -->
+    <script src="js/main.js" defer></script>
+
+    <!-- INFO: Google Analytics 4 или другая аналитика. Убедитесь в соответствии GDPR. -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> -->
+    <!-- <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
+
+</body>
+</html>
